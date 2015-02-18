@@ -7,7 +7,6 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 /**
  * SWE Binary Reader!
  */
-
 var BinaryReader = (function () {
   function BinaryReader(table) {
     _classCallCheck(this, BinaryReader);
@@ -21,23 +20,19 @@ var BinaryReader = (function () {
         this.collectHoles();
         this.collectInputs();
         this.collectLetterPositions();
-        console.log(this.holes);
-        console.log(this.inputs);
-        console.log(this.letterPositions);
+
+        this.renderers = [];
+
+        for (var i = 0; i < 8; i++) {
+          this.renderers.push(new ColumnRenderer(this.inputs[i], this.letterPositions[i], this.holes[i]));
+        }
+
+        this.assignListeners();
       },
       writable: true,
       configurable: true
     },
     collectHoles: {
-
-      /**
-       * Collect each hole element into a 8x5 matrix,
-       * boolean represents enabled or disabled
-       *
-       * this.holes[letter][hole]
-       * this.holes[row][col]
-       * this.holes[0][0] = top left
-       */
       value: function collectHoles() {
         this.holes = [];
 
@@ -48,10 +43,7 @@ var BinaryReader = (function () {
             var selector = "td[data-letter=\"" + i + "\"][data-hole=\"" + j + "\"]";
             var element = document.querySelector(selector);
 
-            this.holes[i].push({
-              element: element,
-              value: parseInt(element.getAttribute("data-value"))
-            });
+            this.holes[i].push(element);
           }
         }
       },
@@ -81,14 +73,63 @@ var BinaryReader = (function () {
       },
       writable: true,
       configurable: true
+    },
+    assignListeners: {
+      value: function assignListeners() {
+        this.assignInputListeners();
+        this.assignPositionListeners();
+        this.assignHoleListeners();
+      },
+      writable: true,
+      configurable: true
+    },
+    assignInputListeners: {
+      value: function assignInputListeners() {
+        var _this = this;
+        this.inputs.forEach(function (input, i) {
+          $(input).keydown(function (e) {
+            _this.renderers[i].letterChanged(e.target.value);
+          });
+        });
+      },
+      writable: true,
+      configurable: true
+    },
+    assignPositionListeners: {
+      value: function assignPositionListeners() {
+        var _this = this;
+        this.letterPositions.forEach(function (position, i) {
+          $(position).keydown(function (e) {
+            _this.renderers[i].positionChanged(e.target.value);
+          });
+        });
+      },
+      writable: true,
+      configurable: true
+    },
+    assignHoleListeners: {
+      value: function assignHoleListeners() {
+        var _this = this;
+        this.holes.forEach(function (holes, i) {
+          holes.forEach(function (hole, j) {
+            $(hole).click(function (e) {
+              _this.holeClicked(_this.holes[i][j]);
+              _this.renderers[i].holesChanged(_this.holes[i]);
+            });
+          });
+        });
+      },
+      writable: true,
+      configurable: true
+    },
+    holeClicked: {
+      value: function holeClicked(hole) {
+        $(hole).toggleClass("on");
+      },
+      writable: true,
+      configurable: true
     }
   });
 
   return BinaryReader;
 })();
-
-var table = document.querySelector("#binary-reader-table");
-var reader = new BinaryReader(table);
-
-reader.init();
-

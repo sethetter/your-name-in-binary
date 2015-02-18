@@ -30,3 +30,7 @@ body {
   width: 90%;
   height: 90%;
 }
+
+#binary-reader-table .hole.on span {
+  background: #aaa;
+}
