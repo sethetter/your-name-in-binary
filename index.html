@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <title>SWE Binary Reader</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+  <table border="0" id="binary-reader-table">
+    <thead>
+      <tr id="word-input">
+        <th colspan="2">Your Word:</th>
+        <th>
+          <input type="text" name="letter-0" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-1" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-2" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-3" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-4" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-5" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-6" value="" />
+        </th>
+        <th>
+          <input type="text" name="letter-7" value="" />
+        </th>
+      </tr>
+      <tr id="letter-position">
+        <th colspan="2">Letter Position:</th>
+        <th>
+          <span id="letter-position-0"></span>
+        </th>
+        <th>
+          <span id="letter-position-1"></span>
+        </th>
+        <th>
+          <span id="letter-position-2"></span>
+        </th>
+        <th>
+          <span id="letter-position-3"></span>
+        </th>
+        <th>
+          <span id="letter-position-4"></span>
+        </th>
+        <th>
+          <span id="letter-position-5"></span>
+        </th>
+        <th>
+          <span id="letter-position-6"></span>
+        </th>
+        <th>
+          <span id="letter-position-7"></span>
+        </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>16</td>
+        <td data-letter="0" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="1" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="2" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="3" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="4" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="5" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="6" data-hole="0" data-value="16" class="hole"><span></span></td>
+        <td data-letter="7" data-hole="0" data-value="16" class="hole"><span></span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>8</td>
+        <td data-letter="0" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="1" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="2" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="3" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="4" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="5" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="6" data-hole="1" data-value="8" class="hole"><span></span></td>
+        <td data-letter="7" data-hole="1" data-value="8" class="hole"><span></span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>4</td>
+        <td data-letter="0" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="1" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="2" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="3" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="4" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="5" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="6" data-hole="2" data-value="4" class="hole"><span></span></td>
+        <td data-letter="7" data-hole="2" data-value="4" class="hole"><span></span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>2</td>
+        <td data-letter="0" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="1" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="2" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="3" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="4" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="5" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="6" data-hole="3" data-value="2" class="hole"><span></span></td>
+        <td data-letter="7" data-hole="3" data-value="2" class="hole"><span></span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>1</td>
+        <td data-letter="0" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="1" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="2" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="3" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="4" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="5" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="6" data-hole="4" data-value="1" class="hole"><span></span></td>
+        <td data-letter="7" data-hole="4" data-value="1" class="hole"><span></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>

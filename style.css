@@ -1,0 +1,32 @@
+body {
+  width: 1120px;
+}
+
+#binary-reader-table {
+  width: 80px;
+  height: 350px;
+  font-size: 1.2em;
+}
+
+#binary-reader-table th,
+#binary-reader-table td {
+  padding: 5px;
+}
+
+#binary-reader-table thead tr th:first-child {
+  width: 3em;
+}
+
+#word-input input,
+#letter-position input {
+  width: 2em;
+}
+
+#binary-reader-table .hole span {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  width: 90%;
+  height: 90%;
+}
