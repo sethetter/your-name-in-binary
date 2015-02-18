@@ -87,7 +87,7 @@ var BinaryReader = (function () {
       value: function assignInputListeners() {
         var _this = this;
         this.inputs.forEach(function (input, i) {
-          $(input).keydown(function (e) {
+          $(input).keyup(function (e) {
             _this.renderers[i].letterChanged(e.target.value);
           });
         });
@@ -99,7 +99,7 @@ var BinaryReader = (function () {
       value: function assignPositionListeners() {
         var _this = this;
         this.letterPositions.forEach(function (position, i) {
-          $(position).keydown(function (e) {
+          $(position).keyup(function (e) {
             _this.renderers[i].positionChanged(e.target.value);
           });
         });

@@ -65,7 +65,7 @@ class BinaryReader {
 
   assignInputListeners() {
     this.inputs.forEach((input, i) => {
-      $(input).keydown((e) => {
+      $(input).keyup((e) => {
         this.renderers[i].letterChanged(e.target.value);
       });
     });
@@ -73,7 +73,7 @@ class BinaryReader {
 
   assignPositionListeners() {
     this.letterPositions.forEach((position, i) => {
-      $(position).keydown((e) => {
+      $(position).keyup((e) => {
         this.renderers[i].positionChanged(e.target.value);
       });
     });

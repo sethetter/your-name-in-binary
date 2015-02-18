@@ -75,14 +75,18 @@ var BinaryCalculator = (function () {
     },
     letterToPosition: {
       value: function letterToPosition(letter) {
-        return ALPHABET.indexOf(letter) + 1;
+        var index = ALPHABET.indexOf(letter);
+
+        if (index === -1) {
+          return "";
+        }return index + 1;
       },
       writable: true,
       configurable: true
     },
     letterToBinary: {
       value: function letterToBinary(letter) {
-        return BINARY[letter];
+        return BINARY[letter] || "";
       },
       writable: true,
       configurable: true
@@ -97,7 +101,7 @@ var BinaryCalculator = (function () {
     },
     positionToLetter: {
       value: function positionToLetter(position) {
-        return ALPHABET[position - 1];
+        return ALPHABET[position - 1] || "";
       },
       writable: true,
       configurable: true
@@ -112,11 +116,15 @@ var BinaryCalculator = (function () {
     },
     binaryToLetter: {
       value: function binaryToLetter(binary) {
-        for (var letter in BINARY) {
-          if (BINARY[letter].join("") === binary.join("")) {
-            return letter;
+        var letter = undefined;
+
+        for (var _letter in BINARY) {
+          if (BINARY[_letter].join("") === binary.join("")) {
+            letter = _letter;
           }
         }
+
+        return letter || "";
       },
       writable: true,
       configurable: true

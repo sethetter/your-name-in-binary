@@ -18,7 +18,7 @@ var ColumnRenderer = (function () {
   _prototypeProperties(ColumnRenderer, null, {
     letterChanged: {
       value: function letterChanged(letter) {
-        var result = this.calculator.calculateFromLetter(letter);
+        var result = this.calculator.calculateFromLetter(letter.toUpperCase());
         this.updateHoles(result.binary);
         this.updatePosition(result.position);
       },

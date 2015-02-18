@@ -58,11 +58,14 @@ class BinaryCalculator {
   }
 
   letterToPosition(letter) {
-    return (ALPHABET.indexOf(letter) + 1);
+    let index = ALPHABET.indexOf(letter);
+
+    if (index === -1) return '';
+    return index + 1;
   }
 
   letterToBinary(letter) {
-    return BINARY[letter];
+    return BINARY[letter] || '';
   }
 
   positionToBinary(position) {
@@ -71,7 +74,7 @@ class BinaryCalculator {
   }
 
   positionToLetter(position) {
-    return ALPHABET[position-1];
+    return ALPHABET[position-1] || '';
   }
 
   binaryToPosition(binary) {
@@ -80,11 +83,15 @@ class BinaryCalculator {
   }
 
   binaryToLetter(binary) {
-    for (let letter in BINARY) {
-      if (BINARY[letter].join('') === binary.join('')) {
-        return letter;
+    let letter;
+
+    for (let _letter in BINARY) {
+      if (BINARY[_letter].join('') === binary.join('')) {
+        letter = _letter;
       }
     }
+
+    return letter || '';
   }
 
 }

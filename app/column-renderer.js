@@ -9,7 +9,7 @@ class ColumnRenderer {
   }
 
   letterChanged(letter) {
-    let result = this.calculator.calculateFromLetter(letter);
+    let result = this.calculator.calculateFromLetter(letter.toUpperCase());
     this.updateHoles(result.binary);
     this.updatePosition(result.position);
   }
